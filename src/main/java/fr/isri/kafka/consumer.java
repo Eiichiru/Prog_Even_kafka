@@ -1,17 +1,30 @@
+package fr.isri.kafka;
 
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.time.Duration;
+import java.util.Arrays;
 import java.util.Properties;
 
-public class ConsumerDemo {
-    private static final Logger log = LoggerFactory.getLogger(ProducerDemo.class);
+public class consumer
+
+{
+    private static final Logger log = LoggerFactory.getLogger(producer.class);
 
     public static void main(String[] args) {
         log.info("I am a Kafka Consumer");
 
         String bootstrapServers = "127.0.0.1:9092";
         String groupId = "my-fourth-application";
-        String topic = "demo_java";
+        String topic = "temp_Fahrenheit";
 
         // create consumer configs
         Properties properties = new Properties();
@@ -30,8 +43,7 @@ public class ConsumerDemo {
                     consumer.poll(Duration.ofMillis(100));
 
             for (ConsumerRecord<String, String> record : records){
-                log.info("Key: " + record.key() + ", Value: " + record.value());
-                log.info("Partition: " + record.partition() + ", Offset:" + record.offset());
+                log.info(record.value()+"°F");
             }
         }
     }
