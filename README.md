@@ -1,3 +1,8 @@
 # Prog_Even_kafka
 Projet de programmation évenmentielle - Kafka 
-bite :)
+
+## Usage :
+
+Lunch the kafka server :
+> docker-compose -f zk-single-kafka-single.yml up
+
