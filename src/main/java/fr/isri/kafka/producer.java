@@ -27,7 +27,7 @@ public class producer {
 
             System.out.println("envoyé");
             // create a producer record
-            ProducerRecord<String, String> producerRecord = new ProducerRecord<>("temp_Celcius", String.valueOf(rand.nextInt(11) + 20)); // Génère un nombre entre 0 (inclus) et 11 (exclus), puis ajoute 20
+            ProducerRecord<String, String> producerRecord = new ProducerRecord<>("temp_Celsius", String.valueOf(rand.nextInt(80))); // Génère un nombre entre 0 (inclus) et 11 (exclus), puis ajoute 20
 
             // send data - asynchronous
             producer.send(producerRecord);

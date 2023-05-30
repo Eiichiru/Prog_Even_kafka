@@ -38,3 +38,4 @@ services:
       - $PWD:/tmp
     depends_on:
       - zoo1
+
