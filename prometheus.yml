@@ -1,0 +1,8 @@
+#Volume to config prom to get metrics from kafka
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'kafka'
+    static_configs:
+      - targets: ['kafka1:9999']
