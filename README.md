@@ -7,7 +7,7 @@ Lunch the kafka server :
 > docker-compose -f docker-compose.yml up
 
 
-Lunch in this order :
+Lunch the java files in this order :
 >producer.java
 
 >traducteur.java
