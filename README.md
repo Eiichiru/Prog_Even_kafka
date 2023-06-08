@@ -9,5 +9,7 @@ Lunch the kafka server :
 
 Lunch in this order :
 >producer.java
+
 >traducteur.java
+
 >consumer.java
