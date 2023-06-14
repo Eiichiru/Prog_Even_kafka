@@ -21,9 +21,9 @@ Go on http://localhost:3000/
 
  **The credentials is :**
 
- -id : admin
+  - id : admin
  
- -pwd : admin
+  - pwd : admin
 
 ### You should see that : 
 
