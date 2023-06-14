@@ -10,6 +10,8 @@ import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
@@ -44,6 +46,15 @@ public class consumer
 
             for (ConsumerRecord<String, String> record : records){
                 log.info(record.value()+"°F");
+                //write Fahrenheit temp in
+                try {
+                    FileWriter fileWriter = new FileWriter("./textfile/temp_Fahrenheit.prom");
+                    fileWriter.write("temp_Fahrenheit{topic=\"temp_Fahrenheit\"} " + record.value()+"\n" );
+                    fileWriter.close();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

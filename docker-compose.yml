@@ -22,7 +22,7 @@ services:
     restart: unless-stopped
     volumes:
       #- '/:/host:ro,rslave'
-      - './textfile:/textfile' 
+      - './textfile:/textfile:ro' 
 
   grafana:
     image: grafana/grafana

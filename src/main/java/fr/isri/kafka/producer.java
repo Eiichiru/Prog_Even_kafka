@@ -1,4 +1,10 @@
 package fr.isri.kafka;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Random;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -30,12 +36,26 @@ public class producer {
             ProducerRecord<String, String> producerRecord = new ProducerRecord<>("temp_Celsius", String.valueOf(rand.nextInt(80))); // Génère un nombre entre 0 (inclus) et 11 (exclus), puis ajoute 20
 
             // send data - asynchronous
-            producer.send(producerRecord);
+            producer.send(producerRecord, (metadata, exception) -> {
+                //write on the prom file the celsius temp for node-exporter
+                if (exception == null) {
+                    try {
+                        FileWriter fileWriter = new FileWriter("./textfile/temp_celsius.prom");
+                        fileWriter.write("temp_Celsius{topic=\"temp_Celsius\"} " + producerRecord.value()+"\n" );
+                        fileWriter.close();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    exception.printStackTrace();
+                }
+            });
 
             // flush data - synchronous
             producer.flush();
 
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         }
 
         // flush and close producer
