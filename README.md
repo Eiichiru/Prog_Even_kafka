@@ -3,26 +3,27 @@ Projet de programmation évenmentielle - Kafka
 
 ## Usage :
 
->### Run the kafka server :
->> docker-compose -f docker-compose.yml up
->
-
->### Run the java files in this order :
-> - producer.java
->
-> - traducteur.java
->
-> - consumer.java
+### Run the kafka server :
+> docker-compose -f docker-compose.yml up
 
 
->### Grafana :
->
->Go on http://localhost:3000/
->
-> **The credentials is :**
->
-> -id : admin
-> -pwd : admin
+### Run the java files in this order :
+ - producer.java
+
+ - traducteur.java
+
+ - consumer.java
+
+
+### Grafana :
+
+Go on http://localhost:3000/
+
+ **The credentials is :**
+
+ -id : admin
+ 
+ -pwd : admin
 
 ### You should see that : 
 
