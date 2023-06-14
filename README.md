@@ -1,6 +1,11 @@
 # Prog_Even_kafka
 Projet de programmation évenmentielle - Kafka 
 
+** WITH : **
+- Jonathan FELIX
+- Keryann JOYAT
+- William JORGE
+
 ## Usage :
 
 ### Run the kafka server :
