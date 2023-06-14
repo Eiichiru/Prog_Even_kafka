@@ -13,15 +13,11 @@ services:
     container_name: node_exporter
     ports:
       - "9100:9100"
-    expose:
-      - 9100
     command:
-      #- '--path.rootfs=/host'
       - '--collector.textfile.directory=/textfile'  
     pid: host
     restart: unless-stopped
     volumes:
-      #- '/:/host:ro,rslave'
       - './textfile:/textfile:ro' 
 
   grafana:
@@ -45,8 +41,6 @@ services:
       - zookeeper
     ports:
       - "9092:9092"
-    expose:
-    - "9093"
     environment:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ADVERTISED_PORT: 9092
