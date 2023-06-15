@@ -24,11 +24,7 @@ Projet de programmation évenmentielle - Kafka
 
 Go on http://localhost:3000/
 
- **The credentials is :**
-
-  - id : admin
- 
-  - pwd : admin
+**PS :** For the credentials you probably have to define them yourself
 
 ### You should see that : 
 
